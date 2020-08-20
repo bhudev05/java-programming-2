@@ -1,0 +1,58 @@
+public class Lastnode
+        {
+	class Node 
+        { 
+        int data; 
+        Node next; 
+        Node(int d) 
+        { 
+            data = d; 
+            next = null; 
+        } 
+	}
+	
+        Node head;
+        void NodeFromLast(int n) 
+        { 
+            int len = 0; 
+            Node temp = head; 
+            while (temp != null) 
+		{ 
+                temp = temp.next; 
+                len++; 
+                } 
+      
+            if (len < n) 
+                return; 
+      
+            temp = head; 
+            for (int i = 1; i < len - n + 1; i++) 
+                temp = temp.next; 
+      
+            System.out.println(temp.data); 
+        } 
+
+        public void push(int new_data) 
+        { 
+        	if(head==null)
+        	{
+        		head=new Node(new_data);
+        	}
+            Node temp=head;
+            while(temp.next!=null)
+            	temp=temp.next;
+            temp.next=new Node(new_data);
+        }
+
+	public static void main(String[] args) {
+		Lastnode obj = new Lastnode(); 
+	        obj.push(20); 
+	        obj.push(4); 
+	        obj.push(15); 
+	        obj.push(35); 
+	  
+	        obj.NodeFromLast(3); 
+
+	}
+
+}
