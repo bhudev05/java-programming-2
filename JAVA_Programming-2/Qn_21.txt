@@ -1,0 +1,64 @@
+public class Rvrslinklist
+ {
+   static node head;
+ 
+   static class node 
+   { 
+      int data; 
+      node next; 
+
+      node(int d) 
+        { 
+            data = d; 
+            next = null; 
+        } 
+    } 
+ 
+    void reverse(node n) 
+      { 
+        node prev = null; 
+        node current = n; 
+        node next = null; 
+        while (current != null) 
+           { 
+            next = current.next; 
+            current.next = prev; 
+            prev = current; 
+            current = next; 
+           } 
+        n = prev; 
+        node temp=n;
+        while(temp.next!=null)
+        {
+        	System.out.println(temp.data);
+        	temp=temp.next;
+        }
+        
+    } 
+
+    public void push(int new_data) 
+      { 
+    	if(head==null)
+    	{
+    		head=new node(new_data);
+    	}
+        node temp=head;
+        while(temp.next!=null)
+        	temp=temp.next;
+        temp.next=new node(new_data);
+    }
+
+	public static void main(String[] args) {
+		
+		Rvrslinklist obj = new Rvrslinklist(); 
+		obj.push(1);
+		obj.push(2);
+		obj.push(3);
+		obj.push(4);
+		obj.push(5);
+
+                obj.reverse(obj.head);
+
+	}
+
+}
